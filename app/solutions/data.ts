@@ -12,6 +12,7 @@ export type Solution = {
   next: [string, string][];
   success: [string, string][];
   heroImage: string;
+  heroBackground: string;
   teamImage: string;
 };
 
@@ -27,7 +28,7 @@ export const solutions: Solution[] = [
     teamSteps: [['Project team', 'Defines phases, blocks, plot types, and the rules for the development.'], ['Commercial team', 'Maintains pricing and availability as project conditions change.'], ['Sales team', 'Uses the current plot record for reservations and sales activity.']],
     next: [['Create the project', 'Start with the phases and blocks that reflect the real development.'], ['Load the inventory', 'Bring each plot and its dimensions into the structured workspace.'], ['Set selling context', 'Attach pricing and availability to the relevant plots.'], ['Start coordinated sales', 'Let assigned users work from the current record.']],
     success: [['Fewer version conflicts', 'Teams refer to one plot position rather than competing spreadsheets.'], ['Clearer selling decisions', 'Availability, dimensions, and price are read together.'], ['Stronger project oversight', 'Leaders see inventory and sales activity in project context.']],
-    heroImage: '/solutions/projects.webp', teamImage: '/solutions/projects-detail.webp',
+    heroImage: '/product-screens/admin.webp', heroBackground: '/solutions/hero-backgrounds/projects.webp', teamImage: '/product-screens/workspace.webp',
   },
   {
     slug: 'sales-lifecycle', title: 'Sales Lifecycle', featureSlug: 'sales-contracts-installments',
@@ -40,7 +41,7 @@ export const solutions: Solution[] = [
     teamSteps: [['Sales desk', 'Confirms the property, buyer, price, and commercial terms.'], ['Finance', 'Records receipts against the installment obligations they satisfy.'], ['Management', 'Reviews transfer, cancellation, or resale in full contract context.']],
     next: [['Select the property', 'Start from the current plot record and approved commercial position.'], ['Agree the terms', 'Create the buyer contract and installment schedule.'], ['Record collections', 'Keep receipts and outstanding amounts connected.'], ['Manage change', 'Carry the lifecycle forward with its earlier history intact.']],
     success: [['One customer position', 'Sales and finance see the same agreement and payment history.'], ['Obligations stay visible', 'Expected installments and actual receipts can be understood together.'], ['Changes remain explainable', 'Later actions retain the contract and property they came from.']],
-    heroImage: '/solutions/sales.webp', teamImage: '/solutions/sales-detail.webp',
+    heroImage: '/product-screens/sales.webp', heroBackground: '/solutions/hero-backgrounds/sales.webp', teamImage: '/product-screens/vouchers.webp',
   },
   {
     slug: 'land-acquisition', title: 'Land Acquisition', featureSlug: 'landowner-management',
@@ -53,7 +54,7 @@ export const solutions: Solution[] = [
     teamSteps: [['Acquisition', 'Captures agreement terms and the landowner relationship.'], ['Finance', 'Follows scheduled payments and completed activity.'], ['Project team', 'Reviews allocation and distribution against the commitment.']],
     next: [['Create the landowner record', 'Establish the person or entity and project relationship.'], ['Capture the agreement', 'Record terms that determine future obligations.'], ['Track the schedule', 'Keep payments in view as the commitment progresses.'], ['Review the position', 'Connect distribution and allocation back to the agreement.']],
     success: [['Commitments are legible', 'Teams can explain what was agreed and what remains due.'], ['Payments have context', 'Finance can read activity against the schedule.'], ['Allocation is traceable', 'Land position remains tied to the original commitment.']],
-    heroImage: '/solutions/land.webp', teamImage: '/solutions/land-detail.webp',
+    heroImage: '/product-screens/landowners.webp', heroBackground: '/solutions/hero-backgrounds/land.webp', teamImage: '/product-screens/admin.webp',
   },
   {
     slug: 'accounting-finance', title: 'Accounting & Finance', featureSlug: 'accounting-vouchers',
@@ -66,7 +67,7 @@ export const solutions: Solution[] = [
     teamSteps: [['Operations', 'Starts from the transaction or business record that needs financial treatment.'], ['Finance', 'Reviews balance, account ownership, and posting context.'], ['Leadership', 'Uses the resulting ledgers and statements to understand position.']],
     next: [['Set up accounts', 'Establish the project chart and required ledgers.'], ['Connect source records', 'Keep receipts, payments, and vouchers tied to their origin.'], ['Apply the posting gate', 'Check each entry before it becomes part of the books.'], ['Review statements', 'Read reports derived from valid posted entries.']],
     success: [['Stronger integrity', 'Entries without valid context are stopped before saving.'], ['Explainable balances', 'Reporting has a path back to posted activity.'], ['One financial picture', 'Operational events and accounting records tell the same story.']],
-    heroImage: '/solutions/accounting.webp', teamImage: '/solutions/accounting-detail.webp',
+    heroImage: '/product-screens/accounts.webp', heroBackground: '/solutions/hero-backgrounds/accounting.webp', teamImage: '/product-screens/vouchers.webp',
   },
   {
     slug: 'payroll-people', title: 'Payroll & People', featureSlug: 'payroll-partners',
@@ -79,7 +80,7 @@ export const solutions: Solution[] = [
     teamSteps: [['People operations', 'Maintains accurate profiles and prepares payroll activity.'], ['Approvers', 'Reviews each run before it is posted.'], ['Finance', 'Tracks liabilities, commissions, and partner commitments.']],
     next: [['Organize profiles', 'Create the people and partner records used by the team.'], ['Prepare a run', 'Calculate the payroll activity for review.'], ['Approve and post', 'Move an accepted run into financial context.'], ['Monitor obligations', 'Review employee and partner liabilities together.']],
     success: [['Clearer accountability', 'Profiles and approval stages show who owns each action.'], ['Costs stay connected', 'Approved payroll has a visible financial consequence.'], ['Broader obligation view', 'Partner and people commitments can be read together.']],
-    heroImage: '/solutions/payroll.webp', teamImage: '/solutions/payroll-detail.webp',
+    heroImage: '/product-screens/employees.webp', heroBackground: '/solutions/hero-backgrounds/payroll.webp', teamImage: '/product-screens/workspace.webp',
   },
   {
     slug: 'recovery-administration', title: 'Recovery & Administration', featureSlug: 'recovery-operations',
@@ -92,7 +93,7 @@ export const solutions: Solution[] = [
     teamSteps: [['Collector', 'Reviews the account and records each call or commitment.'], ['Manager', 'Tracks promised dates and escalation to notice workflows.'], ['Administrator', 'Controls access and reviews sessions or audit activity.']],
     next: [['Open the customer position', 'Start from the contract and receipt record.'], ['Plan follow-up', 'Record calls, promises, and the next date.'], ['Escalate when needed', 'Use the notice workflow with prior history intact.'], ['Review access', 'Check project assignments and audit activity.']],
     success: [['More informed contact', 'Collectors understand dues and payments before acting.'], ['Accountable follow-up', 'Promises, dates, and notices remain attached to the account.'], ['Controlled operation', 'Access boundaries and audit records support oversight.']],
-    heroImage: '/solutions/recovery.webp', teamImage: '/solutions/recovery-detail.webp',
+    heroImage: '/product-screens/oversight.webp', heroBackground: '/solutions/hero-backgrounds/recovery.webp', teamImage: '/product-screens/admin.webp',
   },
 ];
 

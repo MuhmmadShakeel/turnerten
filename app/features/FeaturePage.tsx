@@ -3,10 +3,12 @@
 import { ArrowDown, ArrowRight, Check, ChevronDown, Menu, Workflow, X } from 'lucide-react';
 import { useEffect, useState } from 'react';
 import ThemeToggle from '../ThemeToggle';
+import ProductScreenshot from '../ProductScreenshot';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
 import { features, type Feature } from './data';
 import { solutions } from '../solutions/data';
+import ConnectedEcosystem from './ConnectedEcosystem';
 
 const featurePath = (slug: string) =>
   slug === 'property-project-management' ? '/property-project-management' : `/features/${slug}`;
@@ -184,47 +186,35 @@ const securityWorkflow = [
   ['Create the user', 'Register the employee or authorized system user.'], ['Assign a role', 'Select the role that reflects operational responsibilities.'], ['Assign projects', 'Choose the developments the user is allowed to access.'], ['Enable modules', 'Define which modules are available in the authorized project context.'], ['Configure actions', 'Control what the user can view, create, update, approve, post, or process.'], ['Test access', 'Confirm the workspace and protected functions reflect assigned permissions.'], ['Monitor responsibilities', 'Review access when roles, departments, or assignments change.'], ['Update or revoke access', 'Modify or deactivate permissions when access is no longer required.'],
 ];
 
-const connectedModules = [
-  ['Front office and sales', 'Move available property into booking and sales while keeping customer and transaction records accurate.'],
-  ['Sales contracts and installments', 'Connect sold properties with contracts, schedules, installment activity, and customer obligations.'],
-  ['Receipts and payments', 'Record incoming and outgoing vouchers against the appropriate customer, party, account, and project.'],
-  ['Accounts and ledgers', 'Organize financial entries through a structured chart of accounts and project-specific ledgers.'],
-  ['Landowners and investors', 'Manage agreements, allocations, plots, payments, and ledgers for the parties behind each development.'],
-  ['Expenses and commissions', 'Track project expenses and obligations owed to commission agents.'],
-  ['Recovery operations', 'Monitor outstanding installments, follow-ups, and legal notices for overdue accounts.'],
-  ['Administration and security', 'Control master data, platform settings, user access, permissions, and project-level availability.'],
-];
-
 function PropertyManagementSections() {
   return <>
     <section className={sectionClass}>
       <div className="mx-auto grid max-w-[1220px] gap-8 lg:grid-cols-[.82fr_1.18fr] lg:items-end">
-        <div data-aos="fade-right"><p className="text-xs font-bold uppercase tracking-[.19em] text-[#b9812c]">Complete project control</p><h2 className="mt-3 text-[clamp(2rem,3.2vw,3.2rem)] font-semibold leading-[1.05] tracking-[-.045em]">Turn complex property operations into a clear, connected workflow.</h2></div>
+        <div data-aos="fade-right"><p className="text-xs font-bold uppercase tracking-[.19em] text-[#b9812c]">Complete project control</p><h2 className="mt-3 text-[clamp(2rem,3.2vw,3.2rem)] font-semibold leading-[1.05] tracking-[-.045em]">Bring property operations together.</h2></div>
         <p data-aos="fade-left" className="text-[17px] leading-7 text-slate-600">Property development involves far more than a list of plots. Turner 10 brings project structures, availability, ownership, sales activity, payments, landowners, investors, documents, and reporting together so authorized teams work from dependable information instead of disconnected spreadsheets and manual registers.</p>
       </div>
       <div className="mx-auto mt-8 grid max-w-[1220px] gap-4 md:grid-cols-2 lg:grid-cols-3">{propertyBenefits.map(([title, description], index) => <article key={title} data-aos="fade-up" data-aos-delay={(index % 3) * 75} className="rounded-xl border border-[#e2dfd8] bg-white p-5 shadow-[0_10px_26px_rgba(16,23,42,.05)]"><span className="text-sm font-bold text-[#b9812c]">0{index + 1}</span><h3 className="mt-4 text-lg font-semibold">{title}</h3><p className="mt-2 text-base leading-6 text-slate-600">{description}</p></article>)}</div>
     </section>
 
     <section className={`${sectionClass} bg-[#151c30] text-white`}>
-      <div className="mx-auto max-w-[1220px]"><div data-aos="fade-up" className="max-w-2xl"><p className="text-xs font-bold uppercase tracking-[.19em] text-[#d3a845]">Property management features</p><h2 className="mt-3 text-[clamp(2rem,3.2vw,3.2rem)] font-semibold leading-[1.05] tracking-[-.045em]">Build a reliable digital record of every project.</h2><p className="mt-4 text-[17px] leading-7 text-white/65">Create a structured foundation for your portfolio, from initial setup through sale, collection, and ongoing management.</p></div><div className="mt-8 grid gap-3 md:grid-cols-2">{propertyCapabilities.map(([title, description], index) => <article key={title} data-aos="fade-up" data-aos-delay={(index % 2) * 70} className="flex gap-4 rounded-xl border border-white/10 bg-white/[.04] p-5"><span className="text-sm font-bold text-[#d3a845]">{String(index + 1).padStart(2, '0')}</span><div><h3 className="text-[17px] font-semibold">{title}</h3><p className="mt-2 text-base leading-6 text-white/65">{description}</p></div></article>)}</div></div>
+      <div className="mx-auto max-w-[1220px]"><div data-aos="fade-up" className="max-w-2xl"><p className="text-xs font-bold uppercase tracking-[.19em] text-[#d3a845]">Property management features</p><h2 className="mt-3 text-[clamp(2rem,3.2vw,3.2rem)] font-semibold leading-[1.05] tracking-[-.045em]">Build a reliable project record.</h2><p className="mt-4 text-[17px] leading-7 text-white/65">Create a structured foundation for your portfolio, from initial setup through sale, collection, and ongoing management.</p></div><div className="mt-8 grid gap-3 md:grid-cols-2">{propertyCapabilities.map(([title, description], index) => <article key={title} data-aos="fade-up" data-aos-delay={(index % 2) * 70} className="flex gap-4 rounded-xl border border-white/10 bg-white/[.04] p-5"><span className="text-sm font-bold text-[#d3a845]">{String(index + 1).padStart(2, '0')}</span><div><h3 className="text-[17px] font-semibold">{title}</h3><p className="mt-2 text-base leading-6 text-white/65">{description}</p></div></article>)}</div></div>
     </section>
 
     <section className={sectionClass}>
       <div className="mx-auto max-w-[1220px]"><div data-aos="fade-up" className="mx-auto max-w-2xl text-center"><p className="text-xs font-bold uppercase tracking-[.19em] text-[#b9812c]">How the work moves</p><h2 className="mt-3 text-[clamp(2rem,3.2vw,3.2rem)] font-semibold leading-[1.05] tracking-[-.045em]">From project setup to ongoing management.</h2></div><div className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">{propertyWorkflow.map(([title, description], index) => <article key={title} data-aos="fade-up" data-aos-delay={(index % 3) * 75} className="rounded-xl border border-[#e2dfd8] p-5"><span className="grid h-9 w-9 place-items-center rounded-full bg-[#17213a] text-sm font-bold text-[#d3a845]">{String(index + 1).padStart(2, '0')}</span><h3 className="mt-5 text-lg font-semibold">{title}</h3><p className="mt-2 text-base leading-6 text-slate-600">{description}</p></article>)}</div></div>
     </section>
 
-    <section className={`${sectionClass} bg-[#10172a] text-white`}>
-      <div className="mx-auto overflow-hidden rounded-2xl border border-white/10 bg-[radial-gradient(circle_at_8%_0%,rgba(211,168,69,.18),transparent_31%),linear-gradient(135deg,#172b46_0%,#10172a_62%)] px-6 py-9 shadow-[0_24px_60px_rgba(16,23,42,.28)] sm:px-8 lg:px-10 lg:py-11">
-        <div className="grid gap-9 lg:grid-cols-[.78fr_1.22fr] lg:items-center"><div data-aos="fade-right"><p className="text-xs font-bold uppercase tracking-[.19em] text-[#d3a845]">Project visibility</p><h2 className="mt-3 text-[clamp(2rem,3.2vw,3.2rem)] font-semibold leading-[1.05] tracking-[-.045em]">Know what is happening across every project.</h2><p className="mt-5 max-w-md text-[17px] leading-7 text-white/70">Give management and operational teams one dependable view of inventory, customers, payments, and accounts without stitching together separate files or status updates.</p><div className="mt-7 inline-flex items-center gap-3 rounded-full border border-[#d3a845]/30 bg-[#d3a845]/10 px-4 py-2 text-sm font-semibold text-[#f3d996]"><span className="grid h-7 w-7 place-items-center rounded-full bg-[#d3a845] text-xs font-bold text-[#151c30]">T10</span> One project record</div></div><div data-aos="fade-left" className="grid gap-3 sm:grid-cols-2">{['Which properties are available, booked, or sold?', 'Who is connected to a specific property?', 'What payment plan applies, and what is outstanding?', 'Has the property been cancelled, resold, or repurchased?', 'Which party is connected to the transaction?', 'Which project accounts receive the resulting entries?'].map((question, index) => <div key={question} className="group flex min-h-[88px] gap-3 rounded-xl border border-white/10 bg-white/[.055] p-4 text-[15px] font-medium leading-5 text-white/85 transition hover:-translate-y-0.5 hover:border-[#d3a845]/50 hover:bg-white/[.09] motion-reduce:transform-none"><span className="grid h-7 w-7 shrink-0 place-items-center rounded-lg bg-[#d3a845]/15 text-xs font-bold text-[#d3a845]">{String(index + 1).padStart(2, '0')}</span><span>{question}</span></div>)}</div></div>
+    <section className={`${sectionClass} project-visibility-section`}>
+      <div className="mx-auto max-w-[1220px]">
+        <div className="grid gap-8 lg:grid-cols-[.8fr_1.2fr] lg:items-center">
+          <div data-aos="fade-right"><p className="text-xs font-bold uppercase tracking-[.19em] text-[#946520]">Project visibility</p><h2 className="mt-3 max-w-lg text-[clamp(2rem,3.2vw,3.2rem)] font-semibold leading-[1.08] tracking-[-.045em]">Know where every project stands.</h2><p className="project-visibility-copy mt-5 max-w-lg text-[17px] leading-8 text-[#425168]">See available inventory, customer commitments, payment progress, and project accounts in a shared view. Each answer stays close to its source record.</p><div className="mt-7 inline-flex items-center gap-3 rounded-full border border-[#e5d8b8] bg-white px-4 py-2 text-sm font-semibold text-[#29415b] shadow-sm"><span className="grid h-7 w-7 place-items-center rounded-full bg-[#d3a845] text-xs font-bold text-[#17213a]">T10</span> One connected project record</div></div>
+          <div data-aos="fade-left" className="grid gap-3 sm:grid-cols-2">{[['Inventory', 'See which properties are available, booked, or sold.'], ['Ownership', 'Find the customer and agreement linked to a property.'], ['Payments', 'Review the schedule, receipts, and balance together.'], ['Changes', 'Follow cancellations, repurchases, and resale history.'], ['People', 'See the parties responsible for each transaction.'], ['Accounts', 'Trace project entries back to the activity behind them.']].map(([title, detail], index) => <article key={title} className="group flex min-h-[116px] gap-3 rounded-xl border border-[#e4e9ed] bg-white p-4 shadow-[0_8px_22px_rgba(25,42,65,.045)] transition duration-300 hover:-translate-y-1 hover:border-[#d3a845] hover:shadow-[0_14px_30px_rgba(25,42,65,.1)] motion-reduce:transform-none"><span className="grid h-8 w-8 shrink-0 place-items-center rounded-lg bg-[#f8f1dc] text-xs font-bold text-[#91651e]">{String(index + 1).padStart(2, '0')}</span><span><strong className="block text-base font-semibold text-[#17213a]">{title}</strong><span className="mt-1 block text-[15px] leading-6 text-[#526277]">{detail}</span></span></article>)}</div>
+        </div>
       </div>
     </section>
 
-    <section className={sectionClass}>
-      <div className="mx-auto max-w-[1220px]"><div data-aos="fade-up" className="max-w-2xl"><p className="text-xs font-bold uppercase tracking-[.19em] text-[#b9812c]">Built for complete operations</p><h2 className="mt-3 text-[clamp(2rem,3.2vw,3.2rem)] font-semibold leading-[1.05] tracking-[-.045em]">Property management that works with the rest of your business.</h2></div><div className="mt-8 grid gap-4 md:grid-cols-2 lg:grid-cols-4">{connectedModules.map(([title, description], index) => <article key={title} data-aos="fade-up" data-aos-delay={(index % 4) * 55} className="rounded-xl border border-[#e2dfd8] bg-white p-5"><span className="text-sm font-bold text-[#b9812c]">0{index + 1}</span><h3 className="mt-4 text-[17px] font-semibold">{title}</h3><p className="mt-2 text-sm leading-6 text-slate-600">{description}</p></article>)}</div></div>
-    </section>
-
     <section className={`${sectionClass} bg-[#151c30] text-white`}>
-      <div className="mx-auto grid max-w-[1220px] gap-8 lg:grid-cols-2"><div data-aos="fade-right"><p className="text-xs font-bold uppercase tracking-[.19em] text-[#d3a845]">Controlled by design</p><h2 className="mt-3 text-[clamp(2rem,3.2vw,3.2rem)] font-semibold leading-[1.05] tracking-[-.045em]">Give every user the access they need.</h2><p className="mt-5 text-[17px] leading-7 text-white/65">Project-aware, role-based access helps protect business information. Users see the projects, modules, and actions permitted for their role, with access checked as records are opened.</p><div className="mt-6 space-y-3">{['Separate access across different projects', 'Limit sensitive financial and administrative functions', 'Assign responsibilities around operational roles', 'Protect project and customer information'].map(item => <div key={item} className="flex gap-3 text-base text-white/80"><Check className="mt-1 h-4 w-4 shrink-0 text-[#d3a845]" />{item}</div>)}</div></div><div data-aos="fade-left" className="rounded-2xl border border-white/10 bg-white/[.04] p-7"><p className="text-xs font-bold uppercase tracking-[.19em] text-[#d3a845]">Designed for growing operations</p><h3 className="mt-4 text-2xl font-semibold">Built for property businesses that need a clearer operating picture.</h3><div className="mt-6 grid gap-3 sm:grid-cols-2">{['Real-estate developers', 'Housing societies', 'Property development companies', 'Residential and commercial projects', 'Plot and land-sale businesses', 'Multi-project real-estate groups', 'Property sales and recovery teams', 'Businesses managing landowners and investors'].map(item => <div key={item} className="rounded-lg border border-white/10 px-4 py-3 text-sm text-white/75">{item}</div>)}</div></div></div>
+      <div className="mx-auto grid max-w-[1220px] gap-8 lg:grid-cols-2"><div data-aos="fade-right"><p className="text-xs font-bold uppercase tracking-[.19em] text-[#d3a845]">Controlled by design</p><h2 className="mt-3 text-[clamp(2rem,3.2vw,3.2rem)] font-semibold leading-[1.05] tracking-[-.045em]">Give every user the access they need.</h2><p className="mt-5 text-[17px] leading-7 text-white/65">Project-aware, role-based access helps protect business information. Users see the projects, modules, and actions permitted for their role, with access checked as records are opened.</p><div className="mt-6 space-y-3">{['Separate access across different projects', 'Limit sensitive financial and administrative functions', 'Assign responsibilities around operational roles', 'Protect project and customer information'].map(item => <div key={item} className="flex gap-3 text-base text-white/80"><Check className="mt-1 h-4 w-4 shrink-0 text-[#d3a845]" />{item}</div>)}</div></div><div data-aos="fade-left" className="rounded-2xl border border-white/10 bg-white/[.04] p-7"><p className="text-xs font-bold uppercase tracking-[.19em] text-[#d3a845]">Designed for growing operations</p><h3 className="mt-4 text-2xl font-semibold">Built for growing property teams.</h3><div className="mt-6 grid gap-3 sm:grid-cols-2">{['Real-estate developers', 'Housing societies', 'Property development companies', 'Residential and commercial projects', 'Plot and land-sale businesses', 'Multi-project real-estate groups', 'Property sales and recovery teams', 'Businesses managing landowners and investors'].map(item => <div key={item} className="rounded-lg border border-white/10 px-4 py-3 text-sm text-white/75">{item}</div>)}</div></div></div>
     </section>
 
   </>;
@@ -313,7 +303,7 @@ export default function FeaturePage({ feature }: { feature: Feature }) {
   }, [featuresOpen, solutionsOpen, menuOpen]);
 
   return (
-    <main className="feature-page bg-white font-sans text-[#17213a] selection:bg-[#d3a845] selection:text-[#10172a]">
+    <main className="content-page feature-page bg-white font-sans text-[#17213a] selection:bg-[#d3a845] selection:text-[#10172a]">
       <header className="fixed inset-x-0 top-0 z-50 mx-auto flex max-w-[1440px] items-center justify-between border-b border-white/10 bg-[#10172a]/90 px-5 py-4 shadow-[0_8px_28px_rgba(8,12,24,.18)] backdrop-blur-xl lg:px-10">
         <a href="/" className="flex items-center gap-3 text-white">
           <img src="/turner10-logo.webp" alt="Turner 10" className="h-11 w-11 rounded-xl object-contain" />
@@ -355,19 +345,15 @@ export default function FeaturePage({ feature }: { feature: Feature }) {
         </nav>}
       </header>
 
-      <section id="top" className={`${sectionClass} flex min-h-svh items-center bg-[#151c30] !pt-28 pb-8 text-white lg:h-svh lg:!pt-24`}>
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_74%_50%,rgba(211,168,69,.17),transparent_38%)]" />
-        <div className="relative mx-auto grid w-full max-w-[1220px] items-center gap-8 lg:grid-cols-[.9fr_1.1fr]">
-          <div data-aos="fade-right">
-            <h1 className="max-w-xl text-[clamp(2.35rem,3.8vw,4.2rem)] font-semibold leading-[1.02] tracking-[-.055em]">{feature.headline}</h1>
-            <p className="mt-5 max-w-lg text-[17px] leading-7 text-white/70">{feature.intro}</p>
-            <div className="mt-7 flex flex-wrap gap-3"><a href={(isPropertyManagement || isSalesContracts || isLandownerManagement || isAccountingVouchers || isPayrollPartners || isRecoveryOperations || isProjectSecurity) ? '/contact' : '#workflow'} className="inline-flex items-center gap-2 rounded-full bg-[#d3a845] px-5 py-3 text-sm font-bold text-[#151c30] transition hover:-translate-y-0.5 hover:bg-[#e4bd65] hover:shadow-lg motion-reduce:transform-none">{(isPropertyManagement || isSalesContracts || isLandownerManagement || isAccountingVouchers || isPayrollPartners || isRecoveryOperations || isProjectSecurity) ? 'Request a demo' : 'See how it works'} <ArrowDown className="h-4 w-4" /></a><a href="/#platform" className="rounded-full border border-white/25 px-5 py-3 text-sm font-semibold text-white transition hover:border-[#d3a845]">{(isPropertyManagement || isLandownerManagement || isAccountingVouchers || isPayrollPartners || isRecoveryOperations || isProjectSecurity) ? 'Explore Turner 10' : isSalesContracts ? 'Explore features' : 'Explore platform'}</a></div>
-          </div>
-          <div data-aos="fade-left" className="mx-auto w-full max-w-[520px] overflow-hidden rounded-xl border border-white/15 bg-[#0d1728] shadow-[0_30px_60px_rgba(0,0,0,.32)] lg:max-w-[min(520px,64svh)]">
-            <img src={feature.heroImage} alt={`Turner 10 ${feature.name.toLowerCase()} visual`} className="block h-auto w-full" />
-            <div className="grid gap-2 border-t border-white/10 bg-[#10172a] p-4 min-[440px]:grid-cols-3">
-              {feature.proof.map((point, pointIndex) => <div key={point} className="rounded-md border-r border-white/10 px-2 py-1 transition-colors hover:bg-white/5 last:border-0"><span className="block text-xs font-bold text-[#d3a845]">0{pointIndex + 1}</span><span className="mt-1 block text-xs leading-4 text-white/90">{point}</span></div>)}
-            </div>
+      <section id="top" className={`${sectionClass} feature-hero flex items-center bg-[#151c30] text-white`}>
+        <img src={feature.heroImage} alt="" aria-hidden="true" className="feature-hero-image" />
+        <div className="feature-hero-overlay" aria-hidden="true" />
+        <div className="relative mx-auto w-full max-w-[1220px]" data-aos="fade-up">
+          <div className="max-w-[690px]">
+            <h1 className="text-[clamp(2.35rem,3.8vw,4.2rem)] font-semibold leading-[1.06] tracking-[-.05em]">{feature.headline}</h1>
+            <p className="mt-5 max-w-[610px] text-[17px] leading-7 text-white/80">{feature.intro}</p>
+            <div className="mt-7 flex flex-wrap gap-3"><a href={(isPropertyManagement || isSalesContracts || isLandownerManagement || isAccountingVouchers || isPayrollPartners || isRecoveryOperations || isProjectSecurity) ? '/contact' : '#workflow'} className="inline-flex items-center gap-2 rounded-full bg-[#d3a845] px-5 py-3 text-sm font-bold text-[#151c30] transition hover:-translate-y-0.5 hover:bg-[#e4bd65] hover:shadow-lg motion-reduce:transform-none">{(isPropertyManagement || isSalesContracts || isLandownerManagement || isAccountingVouchers || isPayrollPartners || isRecoveryOperations || isProjectSecurity) ? 'Request a demo' : 'See how it works'} <ArrowDown className="h-4 w-4" /></a><a href="/#platform" className="rounded-full border border-white/40 bg-white/5 px-5 py-3 text-sm font-semibold text-white transition hover:border-[#d3a845]">{(isPropertyManagement || isLandownerManagement || isAccountingVouchers || isPayrollPartners || isRecoveryOperations || isProjectSecurity) ? 'Explore Turner 10' : isSalesContracts ? 'Explore features' : 'Explore platform'}</a></div>
+            <div className="feature-hero-proof mt-9 flex flex-wrap gap-2">{feature.proof.map(point => <span key={point}>{point}</span>)}</div>
           </div>
         </div>
       </section>
@@ -387,6 +373,8 @@ export default function FeaturePage({ feature }: { feature: Feature }) {
       {isPayrollPartners && <PayrollSections />}
       {isRecoveryOperations && <RecoverySections />}
       {isProjectSecurity && <SecuritySections />}
+
+      <ConnectedEcosystem feature={feature} />
 
       <section id="connections" className={sectionClass}>
         <div className="mx-auto grid w-full max-w-[1220px] items-center gap-8 lg:grid-cols-[.78fr_1.22fr]">
@@ -411,15 +399,8 @@ export default function FeaturePage({ feature }: { feature: Feature }) {
 
       <section id="product-view" className={`${sectionClass} bg-[#151c30] text-white`}>
         <div className="mx-auto grid w-full max-w-[1220px] items-center gap-8 lg:grid-cols-[.75fr_1.25fr]">
-          <div data-aos="fade-right"><h2 className="text-[clamp(2rem,3vw,3.1rem)] font-semibold leading-[1.05] tracking-[-.045em]">One connected view.</h2><p className="mt-5 max-w-md text-[17px] leading-7 text-white/60">{feature.visual} This illustrative product view shows how the related records fit together.</p><div className="mt-6 flex flex-wrap gap-2">{feature.proof.map(point => <span key={point} className="rounded-full border border-white/15 px-3 py-2 text-sm text-white/75">{point}</span>)}</div></div>
-          <div data-aos="zoom-in" className="relative mx-auto w-full max-w-[660px] [perspective:1200px]">
-            <div className="absolute -inset-3 rounded-2xl border border-[#d3a845]/20" />
-            <div className="product-view-card relative overflow-hidden rounded-xl border border-white/15 bg-[#1a2941] shadow-[0_35px_65px_rgba(0,0,0,.4)]">
-              <div className="flex items-center justify-between border-b border-white/10 px-5 py-4"><span className="text-sm font-bold tracking-[.2em] text-[#d3a845]">TURNER 10</span><span className="text-xs text-white/45">WORKSPACE / {String(index + 1).padStart(2, '0')}</span></div>
-              <div className="grid gap-4 p-5 sm:grid-cols-[.36fr_.64fr]"><div className="rounded-lg bg-[#101b2e] p-4"><p className="text-xs font-bold uppercase tracking-wider text-white/40">Navigation</p>{feature.steps.map(([title], stepIndex) => <div key={title} className={`mt-3 rounded-md px-3 py-2 text-sm ${stepIndex === 0 ? 'bg-[#d3a845]/15 text-[#d3a845]' : 'text-white/55'}`}>{title}</div>)}</div><div className="space-y-3"><div className="rounded-lg border border-white/10 bg-white/[.04] p-4"><p className="text-sm text-white/45">Active module</p><p className="mt-1 text-lg font-semibold">{feature.name}</p></div>{feature.proof.map((point, pointIndex) => <div key={point} className="flex items-center gap-3 rounded-lg border border-white/10 bg-white/[.04] px-4 py-3 text-sm"><span className="grid h-7 w-7 shrink-0 place-items-center rounded-md bg-[#d3a845]/15 font-bold text-[#d3a845]">0{pointIndex + 1}</span><span>{point}</span><Check className="ml-auto h-4 w-4 text-[#d3a845]" /></div>)}</div></div>
-            </div>
-            <div className="absolute -bottom-5 -left-3 hidden rounded-xl border border-[#d3a845]/30 bg-[#d3a845] px-5 py-3 text-sm font-bold text-[#151c30] shadow-xl sm:block">ONE CONNECTED CONTEXT</div>
-          </div>
+          <div data-aos="fade-right"><h2 className="text-[clamp(2rem,3vw,3.1rem)] font-semibold leading-[1.05] tracking-[-.045em]">One connected view.</h2><p className="mt-5 max-w-md text-[17px] leading-7 text-white/75">Explore the actual Turner 10 workspace for {feature.name.toLowerCase()}. The demo screen shows where the related work begins.</p><div className="mt-6 flex flex-wrap gap-2">{feature.proof.map(point => <span key={point} className="rounded-full border border-white/15 px-3 py-2 text-sm text-white/75">{point}</span>)}</div></div>
+          <div data-aos="zoom-in" className="min-w-0"><ProductScreenshot src={feature.detailImage} title={feature.name} caption={feature.visual} darkFrame /></div>
         </div>
       </section>
 
@@ -436,9 +417,7 @@ export default function FeaturePage({ feature }: { feature: Feature }) {
 
       <section id="connected" className={sectionClass}>
         <div className="mx-auto grid w-full max-w-[1220px] items-center gap-10 lg:grid-cols-[1.08fr_.92fr]">
-          <div data-aos="fade-right" className="overflow-hidden rounded-xl border border-[#e4e0d7] bg-white shadow-[0_22px_50px_rgba(16,23,42,.12)]">
-            <img src={feature.detailImage} alt={`${feature.name} in the Turner 10 workflow`} className="block h-auto w-full" />
-          </div>
+          <div data-aos="fade-right" className="min-w-0"><ProductScreenshot src={feature.secondaryImage} title={`${feature.name} in context`} caption={feature.outcome} /></div>
           <div data-aos="fade-left">
             <h2 className="text-[clamp(2rem,3vw,3.1rem)] font-semibold leading-[1.05] tracking-[-.045em]">One project. Every team connected.</h2>
             <p className="mt-5 max-w-lg text-[17px] leading-7 text-slate-600">{feature.connectedDetail}</p>

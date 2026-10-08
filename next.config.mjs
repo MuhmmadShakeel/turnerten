@@ -1,5 +1,7 @@
+import { PHASE_DEVELOPMENT_SERVER } from 'next/constants.js';
+
 /** @type {import('next').NextConfig} */
-const nextConfig = {
+const baseConfig = {
   images: { unoptimized: true },
   webpack: (config, { dev }) => {
     // Avoid Windows filesystem-cache dependency warnings from Next's SWC loader.
@@ -7,4 +9,8 @@ const nextConfig = {
     return config;
   },
 };
-export default nextConfig;
+
+export default (phase) => ({
+  ...baseConfig,
+  distDir: phase === PHASE_DEVELOPMENT_SERVER ? '.next-dev' : '.next',
+});
