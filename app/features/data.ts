@@ -1,7 +1,7 @@
 export type Feature = {
   slug: string; name: string; eyebrow: string; headline: string; intro: string;
   challenge: string; answer: string; steps: [string, string][]; visual: string;
-  heroImage: string; detailImage: string; caseStudy: string; proof: [string, string, string];
+  heroImage: string; detailImage: string; secondaryImage: string; caseStudy: string; proof: [string, string, string];
   connections: [string, string][]; control: string; outcome: string;
   stepDetails: [string, string, string]; caseDetail: string; connectedDetail: string;
 };
@@ -23,7 +23,7 @@ export const features: Feature[] = [
     stepDetails: ['Commercial rules are established before plots reach the sales desk.', 'The current state of a plot stays visible as reservations become sales.', 'Assignments give each team a focused view of the same project.'],
     caseDetail: 'This connects the setup work to day-to-day selling: the team can check the dimensions of a plot, price, and availability in the context of its phase and block before progressing a buyer.',
     connectedDetail: 'Sales, project, and leadership teams can follow a property from its original setup to its current commercial position without rebuilding the story in separate files.',
-    heroImage: '/features/property-hero.webp', detailImage: '/features/property-detail.webp',
+    heroImage: '/features/property-hero.webp', detailImage: '/product-screens/admin.webp', secondaryImage: '/product-screens/workspace.webp',
   },
   {
     slug: 'sales-contracts-installments', name: 'Sales Contracts & Installments', eyebrow: 'Turner 10 Sales Management',
@@ -41,7 +41,7 @@ export const features: Feature[] = [
     stepDetails: ['The agreement anchors the buyer and property to the agreed terms.', 'Collections can be compared with the schedule they satisfy.', 'Later changes preserve the earlier contract and payment history.'],
     caseDetail: 'The same contract context carries forward when installments are collected or terms change. That gives sales and finance a shared answer to what is due, what has been received, and what happened before.',
     connectedDetail: 'The customer agreement, collection history, and later transfer or resale can be reviewed together, so the next team starts from the full lifecycle rather than a handoff summary.',
-    heroImage: '/features/sales-hero.webp', detailImage: '/features/sales-detail.webp',
+    heroImage: '/features/sales-hero.webp', detailImage: '/product-screens/sales.webp', secondaryImage: '/product-screens/vouchers.webp',
   },
   {
     slug: 'landowner-management', name: 'Landowner Management', eyebrow: 'Turner 10 Land Acquisition Management',
@@ -59,7 +59,7 @@ export const features: Feature[] = [
     stepDetails: ['Terms remain attached to the landowner and the relevant project.', 'Scheduled and completed payments can be read side by side.', 'Allocation decisions stay traceable to the underlying commitment.'],
     caseDetail: 'As payments and allocations progress, the agreement remains the reference point. Acquisition can explain the land position while finance can see the obligations that still need attention.',
     connectedDetail: 'Project, acquisition, and finance teams share the same view of each landowner commitment, its payment progress, and the allocation made against it.',
-    heroImage: '/features/land-hero.webp', detailImage: '/features/land-detail.webp',
+    heroImage: '/features/land-hero.webp', detailImage: '/product-screens/landowners.webp', secondaryImage: '/product-screens/admin.webp',
   },
   {
     slug: 'accounting-vouchers', name: 'Accounting & Vouchers', eyebrow: 'Turner 10 Financial Management',
@@ -77,7 +77,7 @@ export const features: Feature[] = [
     stepDetails: ['Accounts are organized around the project that owns the entry.', 'The posting check catches missing context before it reaches the ledger.', 'Statements follow the entries that were actually posted.'],
     caseDetail: 'Receipts, payments, and vouchers pass through a common check before posting. That links financial reporting back to the operational event and reduces ambiguity when a balance needs investigation.',
     connectedDetail: 'Operations can identify the transaction behind an entry, while finance can move from the same posted record into ledgers and statements with project context intact.',
-    heroImage: '/features/accounting-hero.webp', detailImage: '/features/accounting-detail.webp',
+    heroImage: '/features/accounting-hero.webp', detailImage: '/product-screens/accounts.webp', secondaryImage: '/product-screens/vouchers.webp',
   },
   {
     slug: 'payroll-partners', name: 'Payroll & Partners', eyebrow: 'Turner 10 Workforce & Obligation Management',
@@ -95,7 +95,7 @@ export const features: Feature[] = [
     stepDetails: ['Profiles establish who is involved and how they relate to the work.', 'Review keeps a payroll run distinct from a posted obligation.', 'Liabilities remain visible after approval rather than disappearing into a separate file.'],
     caseDetail: 'The workflow brings payroll review and partner commitments into the same project-aware environment. Approvers can see the people behind a run, and finance can see the obligations that follow.',
     connectedDetail: 'Employee costs, commissions, vendor commitments, and investor relationships sit closer to the financial records used to understand the obligations of a project.',
-    heroImage: '/features/payroll-hero.webp', detailImage: '/features/payroll-detail.webp',
+    heroImage: '/features/payroll-hero.webp', detailImage: '/product-screens/employees.webp', secondaryImage: '/product-screens/workspace.webp',
   },
   {
     slug: 'recovery-operations', name: 'Recovery Operations', eyebrow: 'Turner 10 Collections & Recovery',
@@ -113,7 +113,7 @@ export const features: Feature[] = [
     stepDetails: ['The collector starts with dues and receipts, not an isolated call list.', 'A promise and its follow-up date remain attached to the account.', 'Escalation can use the existing contact and payment history.'],
     caseDetail: 'Collection boards show the account position alongside calls and commitments. The team can distinguish an unpaid amount from an active promise before deciding whether another follow-up or notice is appropriate.',
     connectedDetail: 'Recovery, sales, and finance can read the same contract and receipt history, with each call, commitment, and next action tied to that customer position.',
-    heroImage: '/features/recovery-hero.webp', detailImage: '/features/recovery-detail.webp',
+    heroImage: '/features/recovery-hero.webp', detailImage: '/product-screens/oversight.webp', secondaryImage: '/product-screens/sales.webp',
   },
   {
     slug: 'project-aware-security', name: 'Project-Aware Security', eyebrow: 'Turner 10 Access & Administration',
@@ -131,7 +131,7 @@ export const features: Feature[] = [
     stepDetails: ['Capabilities describe the action, rather than granting blanket access.', 'Project assignment narrows where that action is available.', 'Activity remains reviewable through sessions and audit records.'],
     caseDetail: 'An allowed action needs both the right capability and the right active-project assignment. Audit records, sessions, backup, and restore then support administration after access has been granted.',
     connectedDetail: 'Administrators can manage access across projects while individual teams see the records relevant to their assignments and changes remain traceable.',
-    heroImage: '/features/security-hero.webp', detailImage: '/features/security-detail.webp',
+    heroImage: '/features/security-hero.webp', detailImage: '/product-screens/admin.webp', secondaryImage: '/product-screens/workspace.webp',
   },
 ];
 
